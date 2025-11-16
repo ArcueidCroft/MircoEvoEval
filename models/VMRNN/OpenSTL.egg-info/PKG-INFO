@@ -1,0 +1,183 @@
+Metadata-Version: 2.4
+Name: OpenSTL
+Version: 0.3.0
+Summary: OpenSTL: Open-source Toolbox for SpatioTemporal Predictive Learning
+Home-page: https://github.com/chengtan9907/OpenSTL
+Author: CAIRI Westlake University Contributors
+Author-email: lisiyuan@westlake.edu.com
+License: Apache License 2.0
+Keywords: spatiotemporal predictive learning,video prediction,unsupervised spatiotemporal learning
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+Requires-Dist: dask
+Requires-Dist: decord
+Requires-Dist: future
+Requires-Dist: fvcore
+Requires-Dist: hickle
+Requires-Dist: lpips
+Requires-Dist: matplotlib
+Requires-Dist: nni
+Requires-Dist: netcdf4==1.5.8
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: packaging
+Requires-Dist: pandas
+Requires-Dist: scikit-image<=0.19.3
+Requires-Dist: six
+Requires-Dist: scikit-learn
+Requires-Dist: timm<=0.6.11,>=0.5.4
+Requires-Dist: tqdm
+Requires-Dist: xarray==0.19.0
+Provides-Extra: all
+Requires-Dist: basemap; extra == "all"
+Requires-Dist: geos; extra == "all"
+Requires-Dist: pyproj; extra == "all"
+Requires-Dist: tensorflow; extra == "all"
+Requires-Dist: dask; extra == "all"
+Requires-Dist: decord; extra == "all"
+Requires-Dist: future; extra == "all"
+Requires-Dist: fvcore; extra == "all"
+Requires-Dist: hickle; extra == "all"
+Requires-Dist: lpips; extra == "all"
+Requires-Dist: matplotlib; extra == "all"
+Requires-Dist: nni; extra == "all"
+Requires-Dist: netcdf4==1.5.8; extra == "all"
+Requires-Dist: numpy; extra == "all"
+Requires-Dist: opencv-python; extra == "all"
+Requires-Dist: packaging; extra == "all"
+Requires-Dist: pandas; extra == "all"
+Requires-Dist: scikit-image<=0.19.3; extra == "all"
+Requires-Dist: six; extra == "all"
+Requires-Dist: scikit-learn; extra == "all"
+Requires-Dist: timm<=0.6.11,>=0.5.4; extra == "all"
+Requires-Dist: tqdm; extra == "all"
+Requires-Dist: xarray==0.19.0; extra == "all"
+Requires-Dist: asynctest; extra == "all"
+Requires-Dist: codecov; extra == "all"
+Requires-Dist: flake8; extra == "all"
+Requires-Dist: isort; extra == "all"
+Requires-Dist: pytest; extra == "all"
+Requires-Dist: pytest-cov; extra == "all"
+Requires-Dist: pytest-runner; extra == "all"
+Requires-Dist: xdoctest>=0.10.0; extra == "all"
+Requires-Dist: yapf; extra == "all"
+Requires-Dist: kwarray; extra == "all"
+Provides-Extra: tests
+Requires-Dist: asynctest; extra == "tests"
+Requires-Dist: codecov; extra == "tests"
+Requires-Dist: flake8; extra == "tests"
+Requires-Dist: isort; extra == "tests"
+Requires-Dist: pytest; extra == "tests"
+Requires-Dist: pytest-cov; extra == "tests"
+Requires-Dist: pytest-runner; extra == "tests"
+Requires-Dist: xdoctest>=0.10.0; extra == "tests"
+Requires-Dist: yapf; extra == "tests"
+Requires-Dist: kwarray; extra == "tests"
+Provides-Extra: optional
+Requires-Dist: basemap; extra == "optional"
+Requires-Dist: geos; extra == "optional"
+Requires-Dist: pyproj; extra == "optional"
+Requires-Dist: tensorflow; extra == "optional"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
+
+# VMRNN: Integrating Vision Mamba and LSTM for Efficient and Accurate Spatiotemporal Forecasting
+
+Official repository for VMRNN: Integrating Vision Mamba and LSTM for Efficient and Accurate Spatiotemporal Forecasting. [Paper Link](https://arxiv.org/abs/2403.16536)
+
+*2024.04*: &nbsp;🎉🎉 VMRNN was accepted by CVPR24 Precognition Workshop!
+
+## Overview
+
+We propose the VMRNN cell, a new recurrent unit that integrates the strengths of Vision Mamba blocks with LSTM. Our extensive evaluations show that our proposed approach secures competitive results on a variety of pivot benchmarks while maintaining a smaller model size.
+
+![Example Image](figures/VMRNN_Cell.png)
+![Example Image](figures/VMRNN.png)
+
+## Introduction
+
+Combining CNNs or ViTs, with RNNs for spatiotemporal forecasting, has yielded unparalleled results in predicting temporal and spatial dynamics. However, modeling extensive global information remains a formidable challenge; CNNs are limited by their narrow receptive fields, and ViTs struggle with the intensive computational demands of their attention mechanisms. The emergence of recent Mamba-based architectures has been met with enthusiasm for their exceptional long-sequence modeling capabilities, surpassing established vision models in efficiency, accuracy, and computational footprint, which motivates us to develop an innovative architecture tailored for spatiotemporal forecasting. In this paper, we propose the VMRNN cell, a new recurrent unit that integrates the strengths of Vision Mamba blocks with LSTM. We construct a network centered on VMRNN cells to tackle spatiotemporal prediction tasks effectively. Our extensive evaluations show that our proposed approach secures competitive results on a variety of pivot benchmarks while maintaining a smaller model size.
+
+## Installation
+
+```
+conda env create -f environment.yml
+conda activate VMRNN
+pip install -e .
+pip install einops
+pip install torch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117
+pip install packaging timm==0.6.11 pytest chardet yacs termcolor submitit tensorboardX triton==2.0.0 fvcore
+pip install causal_conv1d==1.1.1
+pip install mamba_ssm==1.1.1
+```
+
+## Overview
+
+- `data/:` contains KTH/TaxiBJ dataset. Download (tools/prepare_data).
+- `openstl/methods/VMRNN.py:` contains defined training method of VMRNN_D and VMRNN-B.
+- `openstl/models/VMRNN_model.py:` contains the model VMRNN-D and VMRNN-B.
+- `scripts:` contains ddp and single GPU training scripts for KTH/TaxiBJ.
+- `configs` contains training configs for KTH/TaxiBJ/Moving MNIST.
+- `Moving_MNIST_VMRNN:` contains the code base for Moving MNIST.
+- `Moving_MNIST_VMRNN/data:` contains Moving MNIST dataset: train-images-idx3-ubyte.gz and mnist_test_seq.npy. Download (tools/prepare_data).
+
+## Train
+
+### TaxiBJ
+
+```
+bash scripts/taxibj/single/taxibj_mamba_1gpu.sh # single gpu
+bash scripts/taxibj/ddp/taxibj_mamba_4gpu.sh # ddp
+```
+
+### KTH
+
+```
+bash scripts/kth/single/kth_mamba.sh # single gpu
+bash scripts/kth/ddp/kth_mamba_2gpu.sh # ddp
+```
+
+### Moving MNIST
+
+```
+cd Moving_MNIST_VMRNN
+bash scripts/mm/train_mm_mamba.sh # train 
+bash scripts/mm/test_mm_mamba.sh # test our pretrained model
+```
+
+## Acknowledgments
+
+Our code is based on [OpenSTL](https://github.com/chengtan9907/OpenSTL) and [SwinLSTM](https://github.com/SongTang-x/SwinLSTM). We sincerely appreciate for their contributions.
+
+## Citation
+
+If you find this repository useful, please consider citing our paper:
+
+```python
+@misc{tang2024vmrnn,
+      title={VMRNN: Integrating Vision Mamba and LSTM for Efficient and Accurate Spatiotemporal Forecasting}, 
+      author={Yujin Tang and Peijie Dong and Zhenheng Tang and Xiaowen Chu and Junwei Liang},
+      year={2024},
+      eprint={2403.16536},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
