@@ -41,8 +41,7 @@ Since the dataset is too large, here we only present the part of sampled data. W
 
 
 
-**The whole dataset is available via Hugging Face**
-Datasets: [Link to Hugging Face](https://huggingface.co/datasets/ArcueidCroft/MicroEvoEval/tree/main)
+**The whole dataset is available via Hugging Face**: [Link to Hugging Face](https://huggingface.co/datasets/ArcueidCroft/MicroEvoEval/tree/main)
 
 ## Supportable Models 
 
